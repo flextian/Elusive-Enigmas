@@ -1,90 +1,89 @@
-[![Code Jam Banner](https://raw.githubusercontent.com/python-discord/code-jam-6/master/ancient%20tech.png?token=AAQAKVPQ55SEFWYYLYO5YV26ETLTC)](#)
+# Elusive Enigmas
+By: Amphibian Alchemists
 
-[![Discord](https://img.shields.io/static/v1?label=Python%20Discord&logo=discord&message=%3E30k%20members&color=%237289DA&logoColor=white)](https://discord.gg/2B963hn)
-[![License](https://img.shields.io/github/license/python-discord/bot)](LICENSE)
-[![Website](https://img.shields.io/badge/website-visit-brightgreen)](https://pythondiscord.com)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-### Welcome to the sixth Python Discord Code Jam!
+Used by the Germans to send covert messages, the WWII Enigma Machine is the most famous encryption device of the 20th Century. As the role of a code receiver for the Germans, you must decipher the message given to you by the commander before the Allies capture you!
 
-#### By popular choice, the theme for this code jam is **Ancient Technology**.
+Table of Contents:
+- Setup
+- Tutorial
+- Settings (Defaults)
+- Background
+- Sources
 
-What you do with this theme or how you interpret it is up to you, but it will be your task to come up with something fun using this theme.
+---
+### Setup
+1. Clone or download this repository.
+2. Ensure you have pip, wheel setuptools and virtualenv in the latest version: `python3 -m pip install --upgrade pip wheel setuptools virtualenv`
+3. Create a virtual environment in your terminal (e.g. `virtualenv venv`).
+5. Activate it (`source venv/bin/activate` or, on Windows, do `venv\Scripts\activate`.
+6. If you're in Windows, install the Kivy dependencies:
+```
+python -m pip install docutils pygments pypiwin32 kivy_deps.sdl2==0.1.* kivy_deps.glew==0.1.*
+python -m pip install kivy_deps.gstreamer==0.1.*
+```
+7. If you are in Linux, make sure you have the [SLD2 dependencies installed](https://kivy.org/doc/stable/installation/installation-linux-venvs.html?highlight=from%20source#dependencies-with-sdl2) and then install Kivy with: `pip install https://github.com/kivy/kivy/archive/stable.zip`
+8. Go to the top directory where `requirements.txt` lives and `pip install -r requirements.txt`.
+9. In terminal, run main.py by doing `python main.py` or `python3 main.py`
 
-#### The chosen technology for this code jam is [Kivy](https://kivy.org/).
+Troubles during setup? Check the installation instructions in the [Kivy website](https://kivy.org/doc/stable/gettingstarted/installation.html)
 
-Kivy is a cross-platform framework for making user interfaces. We know that a lot of you are probably relatively new to this framework and that's why some of Kivy's [core developers](https://kivy.org/#aboutus) will be hanging out in the **`#winter-code-jam`** channel to help you!
+---
+### Tutorial
+In order to start decripting messages, you must first do two things: configure the rotors and the plugboard. In game, you are given a piece of paper with the machine's configurations. Configure the rotors (top) and the plugboard (bottom) according to the paper.
 
-## Getting Started
+![](readme_images/gamescreen.png)
 
-### 1. Fork this repository
-Have your team leader [fork](https://github.com/python-discord/code-jam-6/fork) the repository. If your leader is unavailable, it's okay if someone else does it.
+#### Rotors ####
 
-### 2. Create a pull request
-Open a pull request from your fork's `master` to the `master` branch of this repository. This pull requests will eventually count as your team's submission, but make sure to **open the PR when the code jam starts**. You can use the name of your team as the name of the pull request.
+Configure the three rotors with the + and - buttons until they match with the instructions on the paper.
 
-### 3. Keep changes to your team folder
-Your own team's project files should be contained **within your own team's subdirectory**. A directory with your team's name will already exist, so make sure to use this.
+![](readme_images/rotor.png)![](readme_images/rotorpaper.png)
 
-### 4. Consider your development workflow
-Since you are making a pull request from the `master` of your fork, it would probably be best to use different branches in your repository to work on your project. You can then periodically merge those development branches into the `master` branch.
+#### Plugboard ####
 
-For an ideal developer workflow, you should probably be opening pull requests inside of your fork, targeting your own `master` branch. If this doesn't make any sense to you because you're not that well-versed in git, you will probably be okay with all of you just pushing code directly to your master branch, but keep in mind that this may lead to conflicts if you are all working in parallel.
+Click two ports to create a wire that connects both of them. These ports are labeled with letters. You must connect each letter with its respetive letter pair listed on the paper.
 
-### 5. Commit to your master branch
-The Pull Request you created originally will be automatically updated whenever you push code to `master` on your fork, so no need for updating anything yourself or creating a new Pull Request at the end. Just keep pushing code to your `master` branch and do your best to finish before the code jam ends!
+![](readme_images/plugboard.png)![](readme_images/plugboardpaper.png)
 
-## Important Considerations
+#### Typing ####
 
-### [The Rules](https://pythondiscord.com/pages/code-jams/code-jam-6/rules/)
-Read these before starting any work on your projects.
+Once you have those configured, you are ready to decipher! Type the ciphertext listed on the paper into the textbox. If Autoinput is enabled (enabled by default), your mistakes will be ignored. Turn off Autoinput in settings for a challenge!
 
-### Documentation
-Your team folder should already contain a `README.md` file that you should use to document your project. At the very least, make sure to include information on how to set up and run your project so the judges won't have trouble running it. Failure to provide this information may lead to losing points, or in extreme cases, disqualification.
+Beware though, you only have a certain amount of time to decipher the message before the Allies capture you! Decipher the complete message to win the game!
 
-### Code Style
+Note: If you have Autoinput off and mistype once, you can no longer win (Remember, The Germans didn't have a backspace key).
 
-We expect you to submit code that has a style that is in accordance with [PEP8](https://www.python.org/dev/peps/pep-0008/).
+You can also have a save point (executed from game menu, not main). You can save your current progress as a save point. If you ever mess up, you can restart that current game from that save point by pressing Load Game in the game menu located at the top left of a game.
 
-Pull requests to this repository will be **automatically linted with a tool called [flake8](http://flake8.pycqa.org/en/stable/)** ([see below](#automatic-linting-of-pull-requests) for more information). Your team folder contains a flake8 configuration file, `.flake8`, that allows you to run flake8 with the same settings as we will use.
+---
+### Settings (Defaults)
+- Fullscreen: Off
+- Autoinput: On
+- Musics: On
+- Sound effects: On
 
-We have set a **maximum line length of 100 characters**. This is also set and checked in the flake8 configuration.
+---
+### Background
+To gain the full experience, it's best to understand how the machine works.
+- https://en.wikipedia.org/wiki/Enigma_machine
+- [Numberphile Video](https://www.youtube.com/watch?v=G2_Q9FoD-oQ)
 
-If you wish to use an autoformatter like `black`, that is absolutely fine. Do note that most autoformatters do not guarantee that your code will pass `flake8` and it's up to you to double check that.
+A diagram of the machine's internal functionality:
+![](https://i.pinimg.com/originals/67/cc/c3/67ccc3a33d6fbbf4b2738e167b5cfa37.png)
 
-### Dependancy Management
-You may use any third party package that's available on [PyPI](https://pypi.org/), but you should provide some form of method to easily install your project dependancies, such as a strictly pinned `requirements.txt`, a Pipfile, or some other form of dependency management list.
+---
+### Sources
+- [02246 key type shot strike typewriter.wav by Robinhood76](https://freesound.org/people/nebyoolae/sounds/318067/) - [License](https://creativecommons.org/licenses/by/3.0/)
+- [Gear Clink by nebyoolae](https://freesound.org/people/nebyoolae/sounds/318067/) - [License](https://creativecommons.org/licenses/by/3.0/)
+- [Pop, High, A (H1).wav by InspectorJ](https://freesound.org/people/InspectorJ/sounds/411642/) - [License](https://creativecommons.org/licenses/by/3.0/)
+- [plug in.wav by caseymoura](https://freesound.org/people/caseymoura/sounds/445493/) - [License](https://creativecommons.org/licenses/by/3.0/)
+- [Sneaky Snooper by Jason Shaw](https://audionautix.com/) - [License](https://creativecommons.org/licenses/by/4.0/)
+- [Swooshing by man](http://soundbible.com/670-Swooshing.html) - [License](https://creativecommons.org/licenses/sampling+/1.0/)
 
-### Restrict Files to Team Folder
-You should **make no changes outside of your team's folder**. This means that all of the files you want to include, including your code, assets and dependancy management files should all be contained that directory and not in the root level of the repository. 
+---
+### LICENSE
+MIT License
 
-This ensures that we can merge your pull request into the repository once the Code Jam is over, you get GitHub contribution credit towards our organization and, most importantly, it will showcase your project on GitHub.
-
-## Code Style and Readability
-
-Code style and readability will be important factors in judging your team's project. We expect you to follow the style recommendations made in [PEP8](https://www.python.org/dev/peps/pep-0008/) and, to check for compliance with PEP8, we will use a linting tool called [flake8](http://flake8.pycqa.org/en/stable/). In case PEP8 and flake8 disagree, the output of the linter will be leading.
-
-We will be using flake8 without additional plugins and with most of default settings enabled. The most notable exception is that we've set the maximum line length to 100 characters. To make it easy for you to run flake8 with the same settings as we will use, we have added a `.flake8` configuration file to your team folder.
-
-Obviously, adhering to PEP8 is not the only factor that determines if your code is readable, so make sure to look [beyond PEP8](https://www.youtube.com/watch?v=wf-BqAjZb8M) as well.
-
-#### Automatic Linting of Pull Requests
-
-To help us check your code for compliance with PEP8, we have set up an automated build pipeline that will lint all pull requests made to this repository. Each time a pull requests is opened or when changes are made to the source branch (`master` on your team's fork) of a PR, the build pipeline will automatically lint the pull request. When the build process has completed, the build status will automatically be reported in the pull request:
-
-![Failing build status](https://raw.githubusercontent.com/python-discord/code-jam-6/master/failing_build.png?token=AH7WUVAZRU56A6RY2KPVUOS6EWJUU)
-
-Please note that **you should not use this pipeline as a remote linter**. Ideally, all changes made to the `master` branch of your team's repository have already been linted locally before they were pushed to the remote repository.
-
-## Useful Information for Participants
-
-Our website contains some pages that may help you get started:
-
-- [How to use git](https://pythondiscord.com/pages/code-jams/using-git/)
-
-- [Making a fork, opening a pull request, & creating a GitHub webhook](https://pythondiscord.com/pages/code-jams/pull-request/)
-
-- [How does judging work?](https://pythondiscord.com/pages/code-jams/judging/)
-
-## Partners and Sponsors
-
-[![kivy_143x80](https://user-images.githubusercontent.com/33516116/72271607-173d4980-361f-11ea-8597-4140d98321f5.png)](https://kivy.org/#home) [![jetbrains_143x80](https://user-images.githubusercontent.com/33516116/72271609-173d4980-361f-11ea-8453-c996d33a649b.png)](https://www.jetbrains.com/) [![do_210x80](https://user-images.githubusercontent.com/33516116/72271610-173d4980-361f-11ea-9f3a-0e8de2b8abd1.png)](https://www.digitalocean.com/) [![linode_202x80](https://user-images.githubusercontent.com/33516116/72271608-173d4980-361f-11ea-82bf-e857efca09df.png)](https://www.linode.com/)
+Authors: [Pancho](https://github.com/Franccisco), [YoomamaFTW](https://github.com/YoomamaFTW), [sloopoo](https://github.com/flextian)
