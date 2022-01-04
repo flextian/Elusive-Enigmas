@@ -5,6 +5,10 @@ By: Amphibian Alchemists
 
 Used by the Germans to send covert messages, the WWII Enigma Machine is the most famous encryption device of the 20th Century. As the role of a code receiver for the Germans, you must decipher the message given to you by the commander before the Allies capture you!
 
+Video Demo:
+
+[![Video Demonstration](https://img.youtube.com/vi/8fbZsGrqBzo/0.jpg)](https://youtu.be/8fbZsGrqBzo?t=272)
+
 Table of Contents:
 - Setup
 - Tutorial
